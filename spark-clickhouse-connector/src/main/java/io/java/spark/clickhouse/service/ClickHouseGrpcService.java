@@ -1,56 +1,55 @@
-package java.io.spark.clickhouse;
+package io.java.spark.clickhouse.service;
+
+import io.java.spark.clickhouse.code.ClickhouseGrpc;
 
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 import static io.grpc.stub.ClientCalls.asyncBidiStreamingCall;
 import static io.grpc.stub.ClientCalls.asyncClientStreamingCall;
 import static io.grpc.stub.ClientCalls.asyncServerStreamingCall;
 import static io.grpc.stub.ClientCalls.asyncUnaryCall;
-import static io.grpc.stub.ClientCalls.blockingServerStreamingCall;
-import static io.grpc.stub.ClientCalls.blockingUnaryCall;
-import static io.grpc.stub.ClientCalls.futureUnaryCall;
+import static io.grpc.stub.ClientCalls.*;
 import static io.grpc.stub.ServerCalls.asyncBidiStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncClientStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncServerStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncUnaryCall;
-import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
+import static io.grpc.stub.ServerCalls.*;
 
 /**
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.17.1)",
     comments = "Source: clickhouse_grpc.proto")
-public final class ClickHouseGrpc {
+public final class ClickHouseGrpcService {
 
-  private ClickHouseGrpc() {}
+  private ClickHouseGrpcService() {}
 
   public static final String SERVICE_NAME = "clickhouse.grpc.ClickHouse";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<clickhouse.grpc.ClickhouseGrpc.QueryInfo,
-      clickhouse.grpc.ClickhouseGrpc.Result> getExecuteQueryMethod;
+  private static volatile io.grpc.MethodDescriptor<ClickhouseGrpc.QueryInfo,
+          ClickhouseGrpc.Result> getExecuteQueryMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "ExecuteQuery",
-      requestType = clickhouse.grpc.ClickhouseGrpc.QueryInfo.class,
-      responseType = clickhouse.grpc.ClickhouseGrpc.Result.class,
+      requestType = ClickhouseGrpc.QueryInfo.class,
+      responseType = ClickhouseGrpc.Result.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<clickhouse.grpc.ClickhouseGrpc.QueryInfo,
-      clickhouse.grpc.ClickhouseGrpc.Result> getExecuteQueryMethod() {
-    io.grpc.MethodDescriptor<clickhouse.grpc.ClickhouseGrpc.QueryInfo, clickhouse.grpc.ClickhouseGrpc.Result> getExecuteQueryMethod;
-    if ((getExecuteQueryMethod = ClickHouseGrpc.getExecuteQueryMethod) == null) {
-      synchronized (ClickHouseGrpc.class) {
-        if ((getExecuteQueryMethod = ClickHouseGrpc.getExecuteQueryMethod) == null) {
-          ClickHouseGrpc.getExecuteQueryMethod = getExecuteQueryMethod =
-              io.grpc.MethodDescriptor.<clickhouse.grpc.ClickhouseGrpc.QueryInfo, clickhouse.grpc.ClickhouseGrpc.Result>newBuilder()
+  public static io.grpc.MethodDescriptor<ClickhouseGrpc.QueryInfo,
+          ClickhouseGrpc.Result> getExecuteQueryMethod() {
+    io.grpc.MethodDescriptor<ClickhouseGrpc.QueryInfo, ClickhouseGrpc.Result> getExecuteQueryMethod;
+    if ((getExecuteQueryMethod = ClickHouseGrpcService.getExecuteQueryMethod) == null) {
+      synchronized (ClickHouseGrpcService.class) {
+        if ((getExecuteQueryMethod = ClickHouseGrpcService.getExecuteQueryMethod) == null) {
+          ClickHouseGrpcService.getExecuteQueryMethod = getExecuteQueryMethod =
+              io.grpc.MethodDescriptor.<ClickhouseGrpc.QueryInfo, ClickhouseGrpc.Result>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "clickhouse.grpc.ClickHouse", "ExecuteQuery"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  clickhouse.grpc.ClickhouseGrpc.QueryInfo.getDefaultInstance()))
+                  ClickhouseGrpc.QueryInfo.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  clickhouse.grpc.ClickhouseGrpc.Result.getDefaultInstance()))
+                  ClickhouseGrpc.Result.getDefaultInstance()))
                   .setSchemaDescriptor(new ClickHouseMethodDescriptorSupplier("ExecuteQuery"))
                   .build();
           }
@@ -59,30 +58,30 @@ public final class ClickHouseGrpc {
      return getExecuteQueryMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<clickhouse.grpc.ClickhouseGrpc.QueryInfo,
-      clickhouse.grpc.ClickhouseGrpc.Result> getExecuteQueryWithStreamInputMethod;
+  private static volatile io.grpc.MethodDescriptor<ClickhouseGrpc.QueryInfo,
+          ClickhouseGrpc.Result> getExecuteQueryWithStreamInputMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "ExecuteQueryWithStreamInput",
-      requestType = clickhouse.grpc.ClickhouseGrpc.QueryInfo.class,
-      responseType = clickhouse.grpc.ClickhouseGrpc.Result.class,
+      requestType = ClickhouseGrpc.QueryInfo.class,
+      responseType = ClickhouseGrpc.Result.class,
       methodType = io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
-  public static io.grpc.MethodDescriptor<clickhouse.grpc.ClickhouseGrpc.QueryInfo,
-      clickhouse.grpc.ClickhouseGrpc.Result> getExecuteQueryWithStreamInputMethod() {
-    io.grpc.MethodDescriptor<clickhouse.grpc.ClickhouseGrpc.QueryInfo, clickhouse.grpc.ClickhouseGrpc.Result> getExecuteQueryWithStreamInputMethod;
-    if ((getExecuteQueryWithStreamInputMethod = ClickHouseGrpc.getExecuteQueryWithStreamInputMethod) == null) {
-      synchronized (ClickHouseGrpc.class) {
-        if ((getExecuteQueryWithStreamInputMethod = ClickHouseGrpc.getExecuteQueryWithStreamInputMethod) == null) {
-          ClickHouseGrpc.getExecuteQueryWithStreamInputMethod = getExecuteQueryWithStreamInputMethod =
-              io.grpc.MethodDescriptor.<clickhouse.grpc.ClickhouseGrpc.QueryInfo, clickhouse.grpc.ClickhouseGrpc.Result>newBuilder()
+  public static io.grpc.MethodDescriptor<ClickhouseGrpc.QueryInfo,
+          ClickhouseGrpc.Result> getExecuteQueryWithStreamInputMethod() {
+    io.grpc.MethodDescriptor<ClickhouseGrpc.QueryInfo, ClickhouseGrpc.Result> getExecuteQueryWithStreamInputMethod;
+    if ((getExecuteQueryWithStreamInputMethod = ClickHouseGrpcService.getExecuteQueryWithStreamInputMethod) == null) {
+      synchronized (ClickHouseGrpcService.class) {
+        if ((getExecuteQueryWithStreamInputMethod = ClickHouseGrpcService.getExecuteQueryWithStreamInputMethod) == null) {
+          ClickHouseGrpcService.getExecuteQueryWithStreamInputMethod = getExecuteQueryWithStreamInputMethod =
+              io.grpc.MethodDescriptor.<ClickhouseGrpc.QueryInfo, ClickhouseGrpc.Result>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
               .setFullMethodName(generateFullMethodName(
                   "clickhouse.grpc.ClickHouse", "ExecuteQueryWithStreamInput"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  clickhouse.grpc.ClickhouseGrpc.QueryInfo.getDefaultInstance()))
+                  ClickhouseGrpc.QueryInfo.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  clickhouse.grpc.ClickhouseGrpc.Result.getDefaultInstance()))
+                  ClickhouseGrpc.Result.getDefaultInstance()))
                   .setSchemaDescriptor(new ClickHouseMethodDescriptorSupplier("ExecuteQueryWithStreamInput"))
                   .build();
           }
@@ -91,30 +90,30 @@ public final class ClickHouseGrpc {
      return getExecuteQueryWithStreamInputMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<clickhouse.grpc.ClickhouseGrpc.QueryInfo,
-      clickhouse.grpc.ClickhouseGrpc.Result> getExecuteQueryWithStreamOutputMethod;
+  private static volatile io.grpc.MethodDescriptor<ClickhouseGrpc.QueryInfo,
+          ClickhouseGrpc.Result> getExecuteQueryWithStreamOutputMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "ExecuteQueryWithStreamOutput",
-      requestType = clickhouse.grpc.ClickhouseGrpc.QueryInfo.class,
-      responseType = clickhouse.grpc.ClickhouseGrpc.Result.class,
+      requestType = ClickhouseGrpc.QueryInfo.class,
+      responseType = ClickhouseGrpc.Result.class,
       methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
-  public static io.grpc.MethodDescriptor<clickhouse.grpc.ClickhouseGrpc.QueryInfo,
-      clickhouse.grpc.ClickhouseGrpc.Result> getExecuteQueryWithStreamOutputMethod() {
-    io.grpc.MethodDescriptor<clickhouse.grpc.ClickhouseGrpc.QueryInfo, clickhouse.grpc.ClickhouseGrpc.Result> getExecuteQueryWithStreamOutputMethod;
-    if ((getExecuteQueryWithStreamOutputMethod = ClickHouseGrpc.getExecuteQueryWithStreamOutputMethod) == null) {
-      synchronized (ClickHouseGrpc.class) {
-        if ((getExecuteQueryWithStreamOutputMethod = ClickHouseGrpc.getExecuteQueryWithStreamOutputMethod) == null) {
-          ClickHouseGrpc.getExecuteQueryWithStreamOutputMethod = getExecuteQueryWithStreamOutputMethod =
-              io.grpc.MethodDescriptor.<clickhouse.grpc.ClickhouseGrpc.QueryInfo, clickhouse.grpc.ClickhouseGrpc.Result>newBuilder()
+  public static io.grpc.MethodDescriptor<ClickhouseGrpc.QueryInfo,
+          ClickhouseGrpc.Result> getExecuteQueryWithStreamOutputMethod() {
+    io.grpc.MethodDescriptor<ClickhouseGrpc.QueryInfo, ClickhouseGrpc.Result> getExecuteQueryWithStreamOutputMethod;
+    if ((getExecuteQueryWithStreamOutputMethod = ClickHouseGrpcService.getExecuteQueryWithStreamOutputMethod) == null) {
+      synchronized (ClickHouseGrpcService.class) {
+        if ((getExecuteQueryWithStreamOutputMethod = ClickHouseGrpcService.getExecuteQueryWithStreamOutputMethod) == null) {
+          ClickHouseGrpcService.getExecuteQueryWithStreamOutputMethod = getExecuteQueryWithStreamOutputMethod =
+              io.grpc.MethodDescriptor.<ClickhouseGrpc.QueryInfo, ClickhouseGrpc.Result>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
               .setFullMethodName(generateFullMethodName(
                   "clickhouse.grpc.ClickHouse", "ExecuteQueryWithStreamOutput"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  clickhouse.grpc.ClickhouseGrpc.QueryInfo.getDefaultInstance()))
+                  ClickhouseGrpc.QueryInfo.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  clickhouse.grpc.ClickhouseGrpc.Result.getDefaultInstance()))
+                  ClickhouseGrpc.Result.getDefaultInstance()))
                   .setSchemaDescriptor(new ClickHouseMethodDescriptorSupplier("ExecuteQueryWithStreamOutput"))
                   .build();
           }
@@ -123,30 +122,30 @@ public final class ClickHouseGrpc {
      return getExecuteQueryWithStreamOutputMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<clickhouse.grpc.ClickhouseGrpc.QueryInfo,
-      clickhouse.grpc.ClickhouseGrpc.Result> getExecuteQueryWithStreamIOMethod;
+  private static volatile io.grpc.MethodDescriptor<ClickhouseGrpc.QueryInfo,
+          ClickhouseGrpc.Result> getExecuteQueryWithStreamIOMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "ExecuteQueryWithStreamIO",
-      requestType = clickhouse.grpc.ClickhouseGrpc.QueryInfo.class,
-      responseType = clickhouse.grpc.ClickhouseGrpc.Result.class,
+      requestType = ClickhouseGrpc.QueryInfo.class,
+      responseType = ClickhouseGrpc.Result.class,
       methodType = io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
-  public static io.grpc.MethodDescriptor<clickhouse.grpc.ClickhouseGrpc.QueryInfo,
-      clickhouse.grpc.ClickhouseGrpc.Result> getExecuteQueryWithStreamIOMethod() {
-    io.grpc.MethodDescriptor<clickhouse.grpc.ClickhouseGrpc.QueryInfo, clickhouse.grpc.ClickhouseGrpc.Result> getExecuteQueryWithStreamIOMethod;
-    if ((getExecuteQueryWithStreamIOMethod = ClickHouseGrpc.getExecuteQueryWithStreamIOMethod) == null) {
-      synchronized (ClickHouseGrpc.class) {
-        if ((getExecuteQueryWithStreamIOMethod = ClickHouseGrpc.getExecuteQueryWithStreamIOMethod) == null) {
-          ClickHouseGrpc.getExecuteQueryWithStreamIOMethod = getExecuteQueryWithStreamIOMethod =
-              io.grpc.MethodDescriptor.<clickhouse.grpc.ClickhouseGrpc.QueryInfo, clickhouse.grpc.ClickhouseGrpc.Result>newBuilder()
+  public static io.grpc.MethodDescriptor<ClickhouseGrpc.QueryInfo,
+          ClickhouseGrpc.Result> getExecuteQueryWithStreamIOMethod() {
+    io.grpc.MethodDescriptor<ClickhouseGrpc.QueryInfo, ClickhouseGrpc.Result> getExecuteQueryWithStreamIOMethod;
+    if ((getExecuteQueryWithStreamIOMethod = ClickHouseGrpcService.getExecuteQueryWithStreamIOMethod) == null) {
+      synchronized (ClickHouseGrpcService.class) {
+        if ((getExecuteQueryWithStreamIOMethod = ClickHouseGrpcService.getExecuteQueryWithStreamIOMethod) == null) {
+          ClickHouseGrpcService.getExecuteQueryWithStreamIOMethod = getExecuteQueryWithStreamIOMethod =
+              io.grpc.MethodDescriptor.<ClickhouseGrpc.QueryInfo, ClickhouseGrpc.Result>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
               .setFullMethodName(generateFullMethodName(
                   "clickhouse.grpc.ClickHouse", "ExecuteQueryWithStreamIO"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  clickhouse.grpc.ClickhouseGrpc.QueryInfo.getDefaultInstance()))
+                  ClickhouseGrpc.QueryInfo.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  clickhouse.grpc.ClickhouseGrpc.Result.getDefaultInstance()))
+                  ClickhouseGrpc.Result.getDefaultInstance()))
                   .setSchemaDescriptor(new ClickHouseMethodDescriptorSupplier("ExecuteQueryWithStreamIO"))
                   .build();
           }
@@ -184,61 +183,61 @@ public final class ClickHouseGrpc {
 
     /**
      */
-    public void executeQuery(clickhouse.grpc.ClickhouseGrpc.QueryInfo request,
-        io.grpc.stub.StreamObserver<clickhouse.grpc.ClickhouseGrpc.Result> responseObserver) {
+    public void executeQuery(ClickhouseGrpc.QueryInfo request,
+                             io.grpc.stub.StreamObserver<ClickhouseGrpc.Result> responseObserver) {
       asyncUnimplementedUnaryCall(getExecuteQueryMethod(), responseObserver);
     }
 
     /**
      */
-    public io.grpc.stub.StreamObserver<clickhouse.grpc.ClickhouseGrpc.QueryInfo> executeQueryWithStreamInput(
-        io.grpc.stub.StreamObserver<clickhouse.grpc.ClickhouseGrpc.Result> responseObserver) {
+    public io.grpc.stub.StreamObserver<ClickhouseGrpc.QueryInfo> executeQueryWithStreamInput(
+        io.grpc.stub.StreamObserver<ClickhouseGrpc.Result> responseObserver) {
       return asyncUnimplementedStreamingCall(getExecuteQueryWithStreamInputMethod(), responseObserver);
     }
 
     /**
      */
-    public void executeQueryWithStreamOutput(clickhouse.grpc.ClickhouseGrpc.QueryInfo request,
-        io.grpc.stub.StreamObserver<clickhouse.grpc.ClickhouseGrpc.Result> responseObserver) {
+    public void executeQueryWithStreamOutput(ClickhouseGrpc.QueryInfo request,
+                                             io.grpc.stub.StreamObserver<ClickhouseGrpc.Result> responseObserver) {
       asyncUnimplementedUnaryCall(getExecuteQueryWithStreamOutputMethod(), responseObserver);
     }
 
     /**
      */
-    public io.grpc.stub.StreamObserver<clickhouse.grpc.ClickhouseGrpc.QueryInfo> executeQueryWithStreamIO(
-        io.grpc.stub.StreamObserver<clickhouse.grpc.ClickhouseGrpc.Result> responseObserver) {
+    public io.grpc.stub.StreamObserver<ClickhouseGrpc.QueryInfo> executeQueryWithStreamIO(
+        io.grpc.stub.StreamObserver<ClickhouseGrpc.Result> responseObserver) {
       return asyncUnimplementedStreamingCall(getExecuteQueryWithStreamIOMethod(), responseObserver);
     }
 
-    @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
+    @Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
             getExecuteQueryMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                clickhouse.grpc.ClickhouseGrpc.QueryInfo,
-                clickhouse.grpc.ClickhouseGrpc.Result>(
+                      ClickhouseGrpc.QueryInfo,
+                      ClickhouseGrpc.Result>(
                   this, METHODID_EXECUTE_QUERY)))
           .addMethod(
             getExecuteQueryWithStreamInputMethod(),
             asyncClientStreamingCall(
               new MethodHandlers<
-                clickhouse.grpc.ClickhouseGrpc.QueryInfo,
-                clickhouse.grpc.ClickhouseGrpc.Result>(
+                      ClickhouseGrpc.QueryInfo,
+                      ClickhouseGrpc.Result>(
                   this, METHODID_EXECUTE_QUERY_WITH_STREAM_INPUT)))
           .addMethod(
             getExecuteQueryWithStreamOutputMethod(),
             asyncServerStreamingCall(
               new MethodHandlers<
-                clickhouse.grpc.ClickhouseGrpc.QueryInfo,
-                clickhouse.grpc.ClickhouseGrpc.Result>(
+                      ClickhouseGrpc.QueryInfo,
+                      ClickhouseGrpc.Result>(
                   this, METHODID_EXECUTE_QUERY_WITH_STREAM_OUTPUT)))
           .addMethod(
             getExecuteQueryWithStreamIOMethod(),
             asyncBidiStreamingCall(
               new MethodHandlers<
-                clickhouse.grpc.ClickhouseGrpc.QueryInfo,
-                clickhouse.grpc.ClickhouseGrpc.Result>(
+                      ClickhouseGrpc.QueryInfo,
+                      ClickhouseGrpc.Result>(
                   this, METHODID_EXECUTE_QUERY_WITH_STREAM_IO)))
           .build();
     }
@@ -256,7 +255,7 @@ public final class ClickHouseGrpc {
       super(channel, callOptions);
     }
 
-    @java.lang.Override
+    @Override
     protected ClickHouseStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new ClickHouseStub(channel, callOptions);
@@ -264,32 +263,32 @@ public final class ClickHouseGrpc {
 
     /**
      */
-    public void executeQuery(clickhouse.grpc.ClickhouseGrpc.QueryInfo request,
-        io.grpc.stub.StreamObserver<clickhouse.grpc.ClickhouseGrpc.Result> responseObserver) {
+    public void executeQuery(ClickhouseGrpc.QueryInfo request,
+                             io.grpc.stub.StreamObserver<ClickhouseGrpc.Result> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getExecuteQueryMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public io.grpc.stub.StreamObserver<clickhouse.grpc.ClickhouseGrpc.QueryInfo> executeQueryWithStreamInput(
-        io.grpc.stub.StreamObserver<clickhouse.grpc.ClickhouseGrpc.Result> responseObserver) {
+    public io.grpc.stub.StreamObserver<ClickhouseGrpc.QueryInfo> executeQueryWithStreamInput(
+        io.grpc.stub.StreamObserver<ClickhouseGrpc.Result> responseObserver) {
       return asyncClientStreamingCall(
           getChannel().newCall(getExecuteQueryWithStreamInputMethod(), getCallOptions()), responseObserver);
     }
 
     /**
      */
-    public void executeQueryWithStreamOutput(clickhouse.grpc.ClickhouseGrpc.QueryInfo request,
-        io.grpc.stub.StreamObserver<clickhouse.grpc.ClickhouseGrpc.Result> responseObserver) {
+    public void executeQueryWithStreamOutput(ClickhouseGrpc.QueryInfo request,
+                                             io.grpc.stub.StreamObserver<ClickhouseGrpc.Result> responseObserver) {
       asyncServerStreamingCall(
           getChannel().newCall(getExecuteQueryWithStreamOutputMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public io.grpc.stub.StreamObserver<clickhouse.grpc.ClickhouseGrpc.QueryInfo> executeQueryWithStreamIO(
-        io.grpc.stub.StreamObserver<clickhouse.grpc.ClickhouseGrpc.Result> responseObserver) {
+    public io.grpc.stub.StreamObserver<ClickhouseGrpc.QueryInfo> executeQueryWithStreamIO(
+        io.grpc.stub.StreamObserver<ClickhouseGrpc.Result> responseObserver) {
       return asyncBidiStreamingCall(
           getChannel().newCall(getExecuteQueryWithStreamIOMethod(), getCallOptions()), responseObserver);
     }
@@ -307,7 +306,7 @@ public final class ClickHouseGrpc {
       super(channel, callOptions);
     }
 
-    @java.lang.Override
+    @Override
     protected ClickHouseBlockingStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new ClickHouseBlockingStub(channel, callOptions);
@@ -315,15 +314,15 @@ public final class ClickHouseGrpc {
 
     /**
      */
-    public clickhouse.grpc.ClickhouseGrpc.Result executeQuery(clickhouse.grpc.ClickhouseGrpc.QueryInfo request) {
+    public ClickhouseGrpc.Result executeQuery(ClickhouseGrpc.QueryInfo request) {
       return blockingUnaryCall(
           getChannel(), getExecuteQueryMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public java.util.Iterator<clickhouse.grpc.ClickhouseGrpc.Result> executeQueryWithStreamOutput(
-        clickhouse.grpc.ClickhouseGrpc.QueryInfo request) {
+    public java.util.Iterator<ClickhouseGrpc.Result> executeQueryWithStreamOutput(
+        ClickhouseGrpc.QueryInfo request) {
       return blockingServerStreamingCall(
           getChannel(), getExecuteQueryWithStreamOutputMethod(), getCallOptions(), request);
     }
@@ -341,7 +340,7 @@ public final class ClickHouseGrpc {
       super(channel, callOptions);
     }
 
-    @java.lang.Override
+    @Override
     protected ClickHouseFutureStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new ClickHouseFutureStub(channel, callOptions);
@@ -349,8 +348,8 @@ public final class ClickHouseGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<clickhouse.grpc.ClickhouseGrpc.Result> executeQuery(
-        clickhouse.grpc.ClickhouseGrpc.QueryInfo request) {
+    public com.google.common.util.concurrent.ListenableFuture<ClickhouseGrpc.Result> executeQuery(
+        ClickhouseGrpc.QueryInfo request) {
       return futureUnaryCall(
           getChannel().newCall(getExecuteQueryMethod(), getCallOptions()), request);
     }
@@ -374,34 +373,34 @@ public final class ClickHouseGrpc {
       this.methodId = methodId;
     }
 
-    @java.lang.Override
-    @java.lang.SuppressWarnings("unchecked")
+    @Override
+    @SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_EXECUTE_QUERY:
-          serviceImpl.executeQuery((clickhouse.grpc.ClickhouseGrpc.QueryInfo) request,
-              (io.grpc.stub.StreamObserver<clickhouse.grpc.ClickhouseGrpc.Result>) responseObserver);
+          serviceImpl.executeQuery((ClickhouseGrpc.QueryInfo) request,
+              (io.grpc.stub.StreamObserver<ClickhouseGrpc.Result>) responseObserver);
           break;
         case METHODID_EXECUTE_QUERY_WITH_STREAM_OUTPUT:
-          serviceImpl.executeQueryWithStreamOutput((clickhouse.grpc.ClickhouseGrpc.QueryInfo) request,
-              (io.grpc.stub.StreamObserver<clickhouse.grpc.ClickhouseGrpc.Result>) responseObserver);
+          serviceImpl.executeQueryWithStreamOutput((ClickhouseGrpc.QueryInfo) request,
+              (io.grpc.stub.StreamObserver<ClickhouseGrpc.Result>) responseObserver);
           break;
         default:
           throw new AssertionError();
       }
     }
 
-    @java.lang.Override
-    @java.lang.SuppressWarnings("unchecked")
+    @Override
+    @SuppressWarnings("unchecked")
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_EXECUTE_QUERY_WITH_STREAM_INPUT:
           return (io.grpc.stub.StreamObserver<Req>) serviceImpl.executeQueryWithStreamInput(
-              (io.grpc.stub.StreamObserver<clickhouse.grpc.ClickhouseGrpc.Result>) responseObserver);
+              (io.grpc.stub.StreamObserver<ClickhouseGrpc.Result>) responseObserver);
         case METHODID_EXECUTE_QUERY_WITH_STREAM_IO:
           return (io.grpc.stub.StreamObserver<Req>) serviceImpl.executeQueryWithStreamIO(
-              (io.grpc.stub.StreamObserver<clickhouse.grpc.ClickhouseGrpc.Result>) responseObserver);
+              (io.grpc.stub.StreamObserver<ClickhouseGrpc.Result>) responseObserver);
         default:
           throw new AssertionError();
       }
@@ -412,12 +411,12 @@ public final class ClickHouseGrpc {
       implements io.grpc.protobuf.ProtoFileDescriptorSupplier, io.grpc.protobuf.ProtoServiceDescriptorSupplier {
     ClickHouseBaseDescriptorSupplier() {}
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return clickhouse.grpc.ClickhouseGrpc.getDescriptor();
+      return ClickhouseGrpc.getDescriptor();
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.ServiceDescriptor getServiceDescriptor() {
       return getFileDescriptor().findServiceByName("ClickHouse");
     }
@@ -437,7 +436,7 @@ public final class ClickHouseGrpc {
       this.methodName = methodName;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.MethodDescriptor getMethodDescriptor() {
       return getServiceDescriptor().findMethodByName(methodName);
     }
@@ -448,7 +447,7 @@ public final class ClickHouseGrpc {
   public static io.grpc.ServiceDescriptor getServiceDescriptor() {
     io.grpc.ServiceDescriptor result = serviceDescriptor;
     if (result == null) {
-      synchronized (ClickHouseGrpc.class) {
+      synchronized (ClickHouseGrpcService.class) {
         result = serviceDescriptor;
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)

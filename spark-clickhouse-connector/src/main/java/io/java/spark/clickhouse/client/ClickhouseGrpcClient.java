@@ -14,17 +14,16 @@
  * limitations under the License.
  */
 
-package java.io.spark.clickhouse.client;
+package io.java.spark.clickhouse.client;
 
-import clickhouse.grpc.ClickhouseGrpc;
+import io.java.spark.clickhouse.code.ClickhouseGrpc;
 import com.google.protobuf.InvalidProtocolBufferException;
 import io.grpc.Channel;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.StatusRuntimeException;
 
-import javax.xml.transform.Result;
-import java.io.spark.clickhouse.ClickHouseGrpc;
+import io.java.spark.clickhouse.service.ClickHouseGrpcService;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -33,7 +32,7 @@ import java.util.logging.Logger;
 public class ClickhouseGrpcClient {
   private static final Logger logger = Logger.getLogger(ClickhouseGrpcClient.class.getName());
 
-  private final ClickHouseGrpc.ClickHouseBlockingStub blockingStub;
+  private final ClickHouseGrpcService.ClickHouseBlockingStub blockingStub;
 
   /** Construct client for accessing  server using the existing channel. */
   public ClickhouseGrpcClient(Channel channel) {
@@ -41,18 +40,16 @@ public class ClickhouseGrpcClient {
     // shut it down.
 
     // Passing Channels to code makes code easier to test and makes it easier to reuse Channels.
-    blockingStub = ClickHouseGrpc.newBlockingStub(channel);
+    blockingStub = ClickHouseGrpcService.newBlockingStub(channel);
   }
 
   public ClickhouseGrpc.Result execute(String body) {
     logger.info("Will try to greet " + body + " ...");
     try {
-    final ClickhouseGrpc.QueryInfo queryInfo = ClickhouseGrpc.QueryInfo.parseFrom(body.getBytes());
+    final ClickhouseGrpc.QueryInfo queryInfo = ClickhouseGrpc.QueryInfo.newBuilder().setQuery(body).build();
       return blockingStub.executeQuery(queryInfo);
     } catch (StatusRuntimeException e) {
       logger.log(Level.WARNING, "RPC failed: {0}", e.getStatus());
-    } catch (InvalidProtocolBufferException e) {
-      e.printStackTrace();
     }
     return null;
   }
@@ -63,7 +60,7 @@ public class ClickhouseGrpcClient {
    */
   public static void main(String[] args) throws Exception {
     String createTbSql = "CREATE TABLE grpc_example_table (id UInt32, text String) ENGINE = MergeTree() ORDER BY id;";
-    String insertTbSql = "INSERT INTO grpc_example_table valuse(0,'Input data for'),(1,'gRPC protocol example')";
+    String insertTbSql = "INSERT INTO grpc_example_table values(0,'Input data for'),(1,'gRPC protocol example');";
     String selectSql = "SELECT * FROM grpc_example_table;";
     // Access a service running on the local machine on port 50051
     String target = "localhost:9100";
@@ -82,7 +79,7 @@ public class ClickhouseGrpcClient {
       client.execute(createTbSql);
       client.execute(insertTbSql);
       final ClickhouseGrpc.Result result = client.execute(selectSql);
-      System.out.println(result.getOutputFormat());
+      System.out.println(result.getOutput().toStringUtf8());
     } finally {
       // ManagedChannels use resources like threads and TCP connections. To prevent leaking these
       // resources the channel should be shut down when it will no longer be used. If it may be used
